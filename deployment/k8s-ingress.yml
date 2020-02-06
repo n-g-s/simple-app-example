@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/name: simple-app
+  name: simple-app-ingress
+  namespace: default
+spec:
+  rules:
+    - host: simple.kubernetes.docker.internal
+      http:
+        paths:
+          - backend:
+              serviceName: simple-app-svc
+              servicePort: 80
